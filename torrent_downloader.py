@@ -8,10 +8,10 @@ from twilio.rest import Client
 
 imaplib._MAXLINE = 10000000
 
-'''''
-Sends sms using Twilio to desired phone number.
-'''''
 def smsConfirm():
+    '''''
+    Sends sms using Twilio to desired phone number.
+    '''''
     accountSID = 'xxx'
     authToken = 'xxx'
     twilioCli = Client(accountSID, authToken)
@@ -21,12 +21,13 @@ def smsConfirm():
                                         from_=myTwilioNumber,
                                         to=myCellPhone)
 
-'''''
-Logs into an e-mail, checks for an e-mail with subject 'torrent', if password 
-matches it opens torrent client with a link inside. In case of 
-error traceback is written. At the end it deletes the e-mail.
-'''''
+
 def torrentDonwloader():
+    '''''
+    Logs into an e-mail, checks for an e-mail with subject 'torrent', if password 
+    matches it opens torrent client with a link inside. In case of 
+    error traceback is written. At the end it deletes the e-mail.
+    '''''
     try:
         imapObj = imapclient.IMAPClient('imap.gmail.com', ssl=True)
         imapObj.login('xxx', sys.argv[1])
