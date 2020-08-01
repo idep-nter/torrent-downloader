@@ -19,7 +19,7 @@ def smsConfirm():
 
 def torrentDonwloader():
     '''''
-    Logs into an e-mail, checks for an e-mail with subject 'torrent', if password 
+    Logs into e-mail, checks for an e-mail with subject 'torrent', if password 
     matches it opens torrent client with a link. In case of 
     error traceback is written. At the end it deletes the e-mail.
     '''''
