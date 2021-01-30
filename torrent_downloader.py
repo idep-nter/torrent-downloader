@@ -50,5 +50,5 @@ def torrentDonwloader():
     imapObj.expunge()
     imapObj.logout()
 
-if _name_ == '_name_':
+if _name_ == '_main_':
     schedule.every(15).minutes.do(torrentDownloader)
