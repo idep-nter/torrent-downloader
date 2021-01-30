@@ -16,7 +16,6 @@ def smsConfirm():
                                         from_=myTwilioNumber,
                                         to=myCellPhone)
 
-
 def torrentDonwloader():
     """
     Logs into an e-mail account, checks for an e-mail with a subject 'torrent', 
@@ -29,7 +28,6 @@ def torrentDonwloader():
         imapObj.select_folder('INBOX', readonly=False)
         UIDs = imapObj.search(['SUBJECT torrent'])
         rawMessages = imapObj.fetch(UIDs, ['BODY[]'])
-
         for rawMessage in rawMessages.items:
             message = pyzmail.PyzMessage.factory(rawMessage['BODY[]'])
             text = message.text_part.get_payload().decode\
@@ -43,15 +41,14 @@ def torrentDonwloader():
                                               'qbittorrent.exe', link])
             qbProcess.wait()
             smsConfirm()
-
     except:
         errorFile = open('errorInfo.txt', 'a')
         errorFile.write(traceback.format_exc())
         errorFile.close()
 
-
     imapObj.delete_messages(UIDs)
     imapObj.expunge()
     imapObj.logout()
 
-schedule.every(15).minutes.do(torrentDownloader)
+if _name_ == '_name_':
+    schedule.every(15).minutes.do(torrentDownloader)
